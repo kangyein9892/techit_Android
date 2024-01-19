@@ -2,64 +2,77 @@ package kr.co.lion.ex05_cal
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.widget.addTextChangedListener
 import kr.co.lion.ex05_cal.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    lateinit var activityMainBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(activityMainBinding.root)
 
-        var text1 = 0
-        var text2 = 0
-        var result = 0
+        setEvent()
 
-        binding.apply{
+    }
 
-            /*editTextText.setOnEditorActionListener { view, i, keyEvent ->
-                text1 = view.text.toString().toInt()
-                false
+    // 이벤트를 설정하는 메서드
+    fun setEvent(){
+
+        activityMainBinding.apply {
+            // 더하기 버튼
+            buttonPlus.setOnClickListener {
+                // 입력한 값들을 가져온다.
+                val number1 = editTextNumber1.text.toString().toInt()
+                val number2 = editTextNumber2.text.toString().toInt()
+
+                // 계산한다.
+                val result = number1 + number2
+
+                // 출력한다.
+                textViewResult.text = "결과 : $result"
             }
 
-            editTextText2.setOnEditorActionListener { view, i, keyEvent ->
-                text2 = view.text.toString().toInt()
-                false
-            }*/
+            // 빼기 버튼
+            buttonMinus.setOnClickListener {
+                // 입력한 값들을 가져온다.
+                val number1 = editTextNumber1.text.toString().toInt()
+                val number2 = editTextNumber2.text.toString().toInt()
 
-            editTextText.addTextChangedListener {
-                text1 = it.toString().toInt()
+                // 계산한다.
+                val result = number1 - number2
+
+                // 출력한다.
+                textViewResult.text = "결과 : $result"
             }
 
-            editTextText2.addTextChangedListener {
-                text2 = it.toString().toInt()
+            // 곱하기 버튼
+            buttonMultiply.setOnClickListener {
+                // 입력한 값들을 가져온다.
+                val number1 = editTextNumber1.text.toString().toInt()
+                val number2 = editTextNumber2.text.toString().toInt()
+
+                // 계산한다.
+                val result = number1 * number2
+
+                // 출력한다.
+                textViewResult.text = "결과 : $result"
             }
 
-            button.setOnClickListener {
-                result = text1 + text2
-                button5.text = result.toString()
-            }
+            // 나누기 버튼
+            buttonDivide.setOnClickListener {
+                // 입력한 값들을 가져온다.
+                val number1 = editTextNumber1.text.toString().toInt()
+                val number2 = editTextNumber2.text.toString().toInt()
 
-            button2.setOnClickListener {
-                result = text1 - text2
-                button5.text = result.toString()
-            }
+                // 계산한다.
+                val result = number1 / number2
 
-            button3.setOnClickListener {
-                result = text1 * text2
-                button5.text = result.toString()
+                // 출력한다.
+                textViewResult.text = "결과 : $result"
             }
-
-            button4.setOnClickListener {
-                result = text1 / text2
-                button5.text = result.toString()
-            }
-
         }
     }
 }
