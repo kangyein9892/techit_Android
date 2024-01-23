@@ -3,6 +3,7 @@ package kr.co.lion.ex07_
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.checkbox.MaterialCheckBox.CheckedState
 import kr.co.lion.ex07_.databinding.ActivityMainBinding
@@ -16,44 +17,80 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-        activityMainBinding.apply{
+        initView()
+        setViewEvent()
 
-            switchBtn.setOnCheckedChangeListener { buttonView, isChecked ->
-                when(isChecked){
-                    true-> {
-                        soccer.isEnabled = true
-                        basketball.isEnabled = true
-                        baseball.isEnabled = true
+    }
+
+    // 화면 요소에 관련된 초기화
+    fun initView() {
+        activityMainBinding.apply {
+            // 취미 스위치는 on 상태로 설정한다.
+            switchHobby.isChecked = true
+        }
+    }
+
+    // 화면 요소에 대한 이벤트 설정
+    fun setViewEvent() {
+        activityMainBinding.apply {
+            // 취미 스위치 이벤트
+            switchHobby.setOnCheckedChangeListener { buttonView, isChecked ->
+                // on/off 상태로 분기한다.
+                when (isChecked) {
+                    true -> {
+                        // 보이게
+//                        checkBoxHobby1.isVisible = true
+//                        checkBoxHobby2.isVisible = true
+//                        checkBoxHobby3.isVisible = true
+                        // 활성화
+                        checkBoxHobby1.isEnabled = true
+                        checkBoxHobby2.isEnabled = true
+                        checkBoxHobby3.isEnabled = true
                     }
-                    false ->{
-                        soccer.isEnabled = false
-                        basketball.isEnabled = false
-                        baseball.isEnabled = false
+                    // off 상태
+                    false -> {
+                        // 안보이게
+//                        checkBoxHobby1.isVisible = false
+//                        checkBoxHobby2.isVisible = false
+//                        checkBoxHobby3.isVisible = false
+                        // 비활성화
+                        checkBoxHobby1.isEnabled = false
+                        checkBoxHobby2.isEnabled = false
+                        checkBoxHobby3.isEnabled = false
                     }
                 }
             }
 
-
-            button.setOnClickListener {
-                textView.visibility = View.VISIBLE
-                textView.text = "이름: ${nameTextField.text.toString()}\n"
-                textView.append("아이디: ${idTextField.text.toString()}\n")
-                textView.append("취미: ")
-
-                if((soccer as MaterialCheckBox).checkedState == MaterialCheckBox.STATE_CHECKED){
-                    textView.append("축구 ")
-                }
-                if((basketball as MaterialCheckBox).checkedState == MaterialCheckBox.STATE_CHECKED){
-                    textView.append("농구 ")
-                }
-                if ((baseball as MaterialCheckBox).checkedState == MaterialCheckBox.STATE_CHECKED){
-                    textView.append("야구")
-                }
-                val hobbyCheck = ((soccer as MaterialCheckBox).checkedState == MaterialCheckBox.STATE_CHECKED) &&
-                        ((basketball as MaterialCheckBox).checkedState == MaterialCheckBox.STATE_CHECKED) &&
-                        ((baseball as MaterialCheckBox).checkedState == MaterialCheckBox.STATE_CHECKED)
-                if(hobbyCheck) {
-                    textView.append("없습니다.")
+            // 버튼 이벤트
+            buttonSubmit.setOnClickListener {
+                // 아이디
+                textViewResult.text = "아이디 : ${textFieldUserId.text}\n"
+                // 비밀번호
+                textViewResult.append("비밀번호 : ${textFieldUserPw.text}\n")
+                // 사용자 이름
+                textViewResult.append("이름 : ${textFieldUserName.text}\n")
+                // 스위치의 on/off 상태에 따라 분기한다.
+                when(switchHobby.isChecked){
+                    // off 상태면 취미가 없는 것으로 취급한다.
+                    false -> textViewResult.append("선택한 취미는 없습니다")
+                    // on 상태면 체크박스에 체크한 것을 출력해준다.
+                    true -> {
+                        // 모든 체크박스가 체크되어 있지 않다면
+                        if(checkBoxHobby1.isChecked == false && checkBoxHobby2.isChecked == false
+                            && checkBoxHobby3.isChecked == false){
+                            textViewResult.append("선택한 취미는 없습니다")
+                        } else {
+                            if(checkBoxHobby1.isChecked){
+                                textViewResult.append("선택한 취미 : 축구\n")
+                            }
+                            if(checkBoxHobby2.isChecked){
+                                textViewResult.append("선택한 취미 : 농구\n")
+                            }
+                            if(checkBoxHobby3.isChecked){
+                                textViewResult.append("선택한 취미 : 야구\n")
+                            }
+                        }
+                    }
                 }
             }
         }
