@@ -26,6 +26,11 @@
 - Android17_CheckBox: (Material) CheckBox 설명 및 관련 코드
 - Android18_Switch: (Material) Switch 설명 및 관련 코드
 - Android19_ProgressSlider: (Material) ProgressIndicator / Slider 설명 및 관련 코드
+- Android20_RecylcerView: RecyclerView 설명 및 사용 방법
+- Android21_MaterialCardView: (Material) CardView 사용 방법
+- Android22_Carousel: (Material) Carousel 설명 및 사용 방법
+- Android23_MaterialEtc: (Material) Chip 설명 및 사용 방법
+- Android24_Permission: 안드로이드 앱 권한 관련 설명 및 관련 코드
 <br>
 
 ### 예제 문제
@@ -36,3 +41,4 @@
 - EX05_Cal: ConstraintLayout과 EditText와 Button을 사용해서 사칙연산 계산기 예제 문제
 - EX06_StudentManager: TextView와 EditText, Button을 사용해서 학생정보 출력 예제 문제
 - EX07_Views: TextView, TextField, Switch, CheckBox, Button을 사용해서 사람 정보 및 취미 출력 예제 문제 (enabled 속성 사용)
+- EX08_RecyclerView: TextField로 입력받은 문자를 RecylcerView를 활용해서 출력하는 예제 문제
