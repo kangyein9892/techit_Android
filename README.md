@@ -31,6 +31,8 @@
 - Android22_Carousel: (Material) Carousel 설명 및 사용 방법
 - Android23_MaterialEtc: (Material) Chip 설명 및 사용 방법
 - Android24_Permission: 안드로이드 앱 권한 관련 설명 및 관련 코드
+- Android25_ActivityLifeCycle: ActivityLifeCycle 생명주기 관련 설명 및 코드
+- Android26_StartActivity: Activity 이동 및 intent 관련 설명 및 코드
 <br>
 
 ### 예제 문제
