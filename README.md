@@ -33,6 +33,9 @@
 - Android24_Permission: 안드로이드 앱 권한 관련 설명 및 관련 코드
 - Android25_ActivityLifeCycle: ActivityLifeCycle 생명주기 관련 설명 및 코드
 - Android26_StartActivity: Activity 이동 및 intent 관련 설명 및 코드
+- Android27_ToolBar: MaterialToolBar 설명 및 사용방법 코드
+- Android28_Menu: Menu 설명 및 사용방법 코드
+- Android29_Message: Toast, SnackBar, Dialog, Notification 설명 및 사용방법 코드
 <br>
 
 ### 예제 문제
