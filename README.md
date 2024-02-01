@@ -36,6 +36,8 @@
 - Android27_ToolBar: MaterialToolBar 설명 및 사용방법 코드
 - Android28_Menu: Menu 설명 및 사용방법 코드
 - Android29_Message: Toast, SnackBar, Dialog, Notification 설명 및 사용방법 코드
+- Android30_Thread: Thread 설명 및 관련 코드
+- Android31_BR: Broadcast Receiver 설명 및 사용방법 코드
 <br>
 
 ### 예제 문제
